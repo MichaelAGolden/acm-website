@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --background: 0 0% 100%;
+    --primary: 222.2 47.4% 11.2%;
+    --foreground: 222.2 47.4% 11.2%;
+    --border: 240 5.9% 90%;
+
+    --border-border: hsl(var(--border));
+    --border-border\/20: hsl(var(--border) / .2);
+    --border-border\/40: hsl(var(--border) / .4);
+    --border-border\/60: hsl(var(--border) / .6);
+
+
+    --text-background\/20: hsl(var(--background) / .2);
+    --text-background\/60: hsl(var(--background) / .6);
+    --text-foreground\/60: hsl(var(--foreground) / .6);
+    --text-foreground\/80: hsl(var(--foreground) / .8);
+    --text-foreground: hsl(var(--foreground));
+
+
+}
