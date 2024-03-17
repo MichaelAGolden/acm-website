@@ -8,7 +8,7 @@ export default function Navbar() {
     const { theme } = useTheme();
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-border/40 backdrop-blur-lg supports-[backdrop-filter]:bg-inherit/10 dark:backdrop-blur-2xl dark:border-border">
+        <header className="sticky top-0 z-50 w-full border-b border-border/50 backdrop-blur-lg supports-[backdrop-filter]:bg-inherit/10 dark:backdrop-blur-2xl dark:border-border">
             <div className='container flex h-20 max-w-screen-2xl items-center'>
                 <button className='mr-4 flex items-center space-x-6'>
                     <Image src={`/placeholder${theme === 'dark' ? 'Dark' : 'Light'}.svg`} alt='ACM at ACC' height={64} width={64} />
