@@ -31,9 +31,9 @@ export default function Navbar() {
                     <SheetContent>
                         <nav className='flex flex-col items-center gap-6 select'>
                             <a className='transition-colors hover:text-foreground text-foreground/60' href='#about'>About Us</a>
+                            <a className='transition-colors hover:text-foreground text-foreground/60' href='#hackathons'>Hackathons</a>
                             <a className='transition-colors hover:text-foreground text-foreground/60' href='#events'>Events</a>
                             <a className='transition-colors hover:text-foreground text-foreground/60' href='#resources'>Resources</a>
-                            <a className='transition-colors hover:text-foreground text-foreground/60' href='#hackathons'>Hackathons</a>
                             <a className='transition-colors hover:text-foreground text-foreground/60' href='#contact'>Contact</a>
                         </nav>
                     </SheetContent>
@@ -41,9 +41,9 @@ export default function Navbar() {
                 <div className='hidden sm:flex sm:space-x-4 md:flex md:space-x-6 text-sm'>
                     <nav className='flex sm:items-center sm:gap-4 md:gap-6 md:items-center gap-2 select'>
                         <a className='transition-colors hover:text-foreground text-foreground/60' href='#about'>About Us</a>
+                        <a className='transition-colors hover:text-foreground text-foreground/60' href='#hackathons'>Hackathons</a>
                         <a className='transition-colors hover:text-foreground text-foreground/60' href='#events'>Events</a>
                         <a className='transition-colors hover:text-foreground text-foreground/60' href='#resources'>Resources</a>
-                        <a className='transition-colors hover:text-foreground text-foreground/60' href='#hackathons'>Hackathons</a>
                         <a className='transition-colors hover:text-foreground text-foreground/60' href='#contact'>Contact</a>
                     </nav>
                 </div>

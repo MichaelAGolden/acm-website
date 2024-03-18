@@ -8,6 +8,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -22,182 +23,73 @@ export default function Home() {
             <p>
               The Association for Computing Machinery at Austin Community College is a student organization that aims to provide resources and opportunities for students interested in computer science and technology.
             </p>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 my-5">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Card Title</CardTitle>
+          </section>
+          <Separator className="my-8" />
+          <section id="hackathons">
+            <h2 className="text-2xl font-bold">Hackathons</h2>
+
+            <div className="grid grid-cols-2 justify-items-center gap-2 md:grid-cols-2 lg:grid-cols-2 my-5">
+              <Card className="w-96">
+                <CardHeader className="flex-row space-x-3">
+                  <Image
+                    src="/riverhacks-23.png"
+                    alt="Riverhacks logo"
+                    width={64}
+                    height={64}
+                    className="top-0" />
+                  <CardTitle>Riverhacks 2023</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription>
-                    This is a card description
+                    Dates: May 18–19, 2023
+
+                    Riverhacks 2023 was our second annual hackathon  hackathon event. Whether youre the absolute beginner or experienced, this is the perfect opportunity to learn and create projects
                   </CardDescription>
                 </CardContent>
                 <CardFooter>
-                  <button className="btn">Click me</button>
+                  <a href="https://riverhacks-2022.devpost.com/?ref_feature=challenge&ref_medium=discover!">Devpost and Results</a>
                 </CardFooter>
               </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Card Title</CardTitle>
+
+
+              <Card className="w-96">
+                <CardHeader className="flex-row space-x-3">
+                  <Image
+                    src="/riverhacks-22.png"
+                    alt="Riverhacks logo"
+                    width={64}
+                    height={64}
+                    className="top-0" />
+                  <CardTitle>Riverhacks 2022</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <CardDescription>
-                    This is a card description
+                    Dates: May 20-21, 2022
+
+                    Our first hackathon, Riverhacks 2022, was a huge success! We had 42 participants and 11 projects submitted.
                   </CardDescription>
                 </CardContent>
                 <CardFooter>
-                  <button className="btn">Click me</button>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Card Title</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    This is a card description
-                  </CardDescription>
-                </CardContent>
-                <CardFooter>
-                  <button className="btn">Click me</button>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Card Title</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    This is a card description
-                  </CardDescription>
-                </CardContent>
-                <CardFooter>
-                  <button className="btn">Click me</button>
+                  <a href="https://riverhacks-2022.devpost.com/?ref_feature=challenge&ref_medium=discover">Devpost and Results</a>
                 </CardFooter>
               </Card>
             </div>
+            <Separator className="my-8" />
           </section>
-          <Separator className="my-8" />
           <section id="events">
             <h2 className="text-2xl font-bold">Events</h2>
             <p>
               We host a variety of events throughout the year, including workshops, hackathons, and socials.
             </p>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 my-5">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Card Title</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    This is a card description
-                  </CardDescription>
-                </CardContent>
-                <CardFooter>
-                  <button className="btn">Click me</button>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Card Title</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    This is a card description
-                  </CardDescription>
-                </CardContent>
-                <CardFooter>
-                  <button className="btn">Click me</button>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Card Title</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    This is a card description
-                  </CardDescription>
-                </CardContent>
-                <CardFooter>
-                  <button className="btn">Click me</button>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Card Title</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    This is a card description
-                  </CardDescription>
-                </CardContent>
-                <CardFooter>
-                  <button className="btn">Click me</button>
-                </CardFooter>
-              </Card>
-            </div>
+
           </section>
           <Separator className="my-8" />
           <section id="resources">
             <h2 className="text-2xl font-bold">Resources</h2>
+
             <p>
               We provide resources for students to learn and grow in the field of computer science, including tutoring, mentorship, and project collaboration.
             </p>
-            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 my-5">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Card Title</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    This is a card description
-                  </CardDescription>
-                </CardContent>
-                <CardFooter>
-                  <button className="btn">Click me</button>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Card Title</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    This is a card description
-                  </CardDescription>
-                </CardContent>
-                <CardFooter>
-                  <button className="btn">Click me</button>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Card Title</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    This is a card description
-                  </CardDescription>
-                </CardContent>
-                <CardFooter>
-                  <button className="btn">Click me</button>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Card Title</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    This is a card description
-                  </CardDescription>
-                </CardContent>
-                <CardFooter>
-                  <button className="btn">Click me</button>
-                </CardFooter>
-              </Card>
-            </div>
           </section>
           <Separator className="my-8" />
           <section id="contact">
@@ -207,64 +99,14 @@ export default function Home() {
               <a href="mailto:">contact@austincs.org</a>
             </p>
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 my-5">
-              <Card>
-                <CardHeader>
-                  <CardTitle>Card Title</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    This is a card description
-                  </CardDescription>
-                </CardContent>
-                <CardFooter>
-                  <button className="btn">Click me</button>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Card Title</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    This is a card description
-                  </CardDescription>
-                </CardContent>
-                <CardFooter>
-                  <button className="btn">Click me</button>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Card Title</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    This is a card description
-                  </CardDescription>
-                </CardContent>
-                <CardFooter>
-                  <button className="btn">Click me</button>
-                </CardFooter>
-              </Card>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Card Title</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>
-                    This is a card description
-                  </CardDescription>
-                </CardContent>
-                <CardFooter>
-                  <button className="btn">Click me</button>
-                </CardFooter>
-              </Card>
             </div>
           </section>
           <Separator className="my-8" />
         </div>
+
       </main >
       <Footer />
-    </div >
+    </div>
   );
 }
+
