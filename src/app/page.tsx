@@ -27,9 +27,27 @@ export default function Home() {
           <Separator className="my-8" />
           <section id="hackathons">
             <h2 className="text-2xl font-bold">Hackathons</h2>
+            <div className="grid grid-cols-1 justify-items-center gap-2 md:grid-cols-2 lg:grid-cols-2 my-5">
+              <Card className="max-w-fit">
+                <CardHeader className="flex-row space-x-3">
+                  <Image
+                    src="/riverhacks-24.png"
+                    alt="Riverhacks logo"
+                    width={64}
+                    height={64}
+                    className="top-0" />
+                  <CardTitle>Riverhacks 2024</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>
+                    Dates: April 13- 14, 2024
 
-            <div className="grid grid-cols-2 justify-items-center gap-2 md:grid-cols-2 lg:grid-cols-2 my-5">
-              <Card className="w-96">
+                    Riverhacks 2024 is our third annual hackathon event. Whether youre the absolute beginner or experienced, this is the perfect opportunity to learn and create projects
+                  </CardDescription>
+                </CardContent>
+              </Card>
+
+              <Card className="max-w-fit">
                 <CardHeader className="flex-row space-x-3">
                   <Image
                     src="/riverhacks-23.png"
@@ -47,12 +65,11 @@ export default function Home() {
                   </CardDescription>
                 </CardContent>
                 <CardFooter>
-                  <a href="https://riverhacks-2022.devpost.com/?ref_feature=challenge&ref_medium=discover!">Devpost and Results</a>
+                  <a href="https://riverhacks-2023.devpost.com/">Devpost and Results</a>
                 </CardFooter>
               </Card>
 
-
-              <Card className="w-96">
+              <Card className="max-w-fit">
                 <CardHeader className="flex-row space-x-3">
                   <Image
                     src="/riverhacks-22.png"
