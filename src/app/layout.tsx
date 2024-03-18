@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ACC Riverhacks 2024",
+  title: "ACC CS Club",
   description: "Riverhacks 2024 is an Major League Hacking, student organized and run hackathon, held this year from April 13th-14th in Austin by the ACC Computer Science Club."
 };
 
