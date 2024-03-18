@@ -69,6 +69,16 @@
   }
 }
 
+section::before {
+  content: "";
+  display: block;
+  height: 100px;
+  /* Adjust this to match the height of your navbar */
+  margin: -100px 0 0;
+  /* This negative margin is the same value as the height */
+  visibility: hidden;
+}
+
 @layer base {
   * {
     @apply border-border;
