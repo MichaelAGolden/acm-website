@@ -13,6 +13,8 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
+import { TypographyH1, TypographyH2, TypographyH3, TypographyMuted } from '@/components/typography/typography';
+
 
 export default function Navbar() {
     const { theme, resolvedTheme } = useTheme();
@@ -25,26 +27,26 @@ export default function Navbar() {
             <div className='container flex xs:flex-row sm:flex-row md:flex-row h-20 items-center'>
                 <Sheet>
                     <SheetTrigger className='mr-4 flex items-center space-x-6 ml-6'>
-                        <Image src={`/placeholder${theme === 'dark' ? 'Dark' : 'Light'}.svg`} alt='ACM at ACC' height={64} width={64} />
-                        <span className='font-sans font-bold text-lg'>ACM at ACC</span>
+                        <Image src={`/logo${theme === 'dark' ? 'Dark' : 'Light'}.svg`} alt='ACM at ACC' height={64} width={64} />
+                        <TypographyH3 className=''>ACM at ACC</TypographyH3>
                     </SheetTrigger>
                     <SheetContent>
                         <nav className='flex flex-col items-center gap-6 select'>
-                            <a className='transition-colors hover:text-foreground text-foreground/60' href='#about'>About Us</a>
-                            <a className='transition-colors hover:text-foreground text-foreground/60' href='#hackathons'>Hackathons</a>
-                            <a className='transition-colors hover:text-foreground text-foreground/60' href='#events'>Events</a>
-                            <a className='transition-colors hover:text-foreground text-foreground/60' href='#resources'>Resources</a>
-                            <a className='transition-colors hover:text-foreground text-foreground/60' href='#contact'>Contact</a>
+                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#about'>About Us</a></TypographyMuted>
+                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#hackathons'>Hackathons</a></TypographyMuted>
+                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#events'>Events</a></TypographyMuted>
+                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#resources'>Resources</a></TypographyMuted>
+                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#contact'>Contact</a></TypographyMuted>
                         </nav>
                     </SheetContent>
                 </Sheet>
                 <div className='hidden sm:flex sm:space-x-4 md:flex md:space-x-6 text-sm'>
                     <nav className='flex sm:items-center sm:gap-4 md:gap-6 md:items-center gap-2 select'>
-                        <a className='transition-colors hover:text-foreground text-foreground/60' href='#about'>About Us</a>
-                        <a className='transition-colors hover:text-foreground text-foreground/60' href='#hackathons'>Hackathons</a>
-                        <a className='transition-colors hover:text-foreground text-foreground/60' href='#events'>Events</a>
-                        <a className='transition-colors hover:text-foreground text-foreground/60' href='#resources'>Resources</a>
-                        <a className='transition-colors hover:text-foreground text-foreground/60' href='#contact'>Contact</a>
+                        <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#about'>About Us</a></TypographyMuted>
+                        <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#hackathons'>Hackathons</a></TypographyMuted>
+                        <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#events'>Events</a></TypographyMuted>
+                        <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#resources'>Resources</a></TypographyMuted>
+                        <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='contact'>Contact</a></TypographyMuted>
                     </nav>
                 </div>
                 <div className='flex flex-1 sm:flex-row md:flex-row items-center justify-end space-x-2 pr-6'>
