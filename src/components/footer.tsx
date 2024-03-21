@@ -11,7 +11,7 @@ export default function Footer() {
 		<footer>
 			<div className='container flex h-20 items-center justify-between'>
 				<div className='flex items-center space-x-6 mb-6 ml-6'>
-					<Image src={`/placeholder${theme === 'dark' ? 'Dark' : 'Light'}.svg`} alt='ACM at ACC' height={64} width={64} />
+					<Image src={`/logo${theme === 'dark' ? 'Light' : 'Dark'}.svg`} alt='ACM at ACC' height={64} width={64} />
 					<div className='flex flex-col md:flex-row items-center space-x-6'>
 						<p className='text-foreground/60'> © 2024 ACM at ACC | © 2024 ACC CS Club</p>
 					</div>
