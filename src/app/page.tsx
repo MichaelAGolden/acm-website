@@ -22,8 +22,8 @@ export default function Home() {
         <div className="container relative">
           <div className="mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20">
             <section className="h-screen text-center">
-              <TypographyH1 className="mb-5 text-center pt-40">ACM at ACC</TypographyH1>
-              <TypographyMuted className="mb-10 text-center">Welcome to the Association for Computing Machinery at Austin Community College</TypographyMuted>
+              <TypographyH1 className="mb-5 text-center pt-40">ACC ACM</TypographyH1>
+              <TypographyMuted className="mb-10 text-center">Welcome to the Austin Community College Association for Computing Machinery Student Chapter</TypographyMuted>
               <div className="space-x-5">
                 <Button>
                   <a>
@@ -40,7 +40,7 @@ export default function Home() {
             <section id="about">
               <h2 className="text-2xl font-bold">About Us</h2>
               <p>
-                The Association for Computing Machinery at Austin Community College is a student organization that aims to provide resources and opportunities for students interested in computer science and technology.
+                The Austin Community College ACM Student Chapter is a student organization that aims to provide resources and opportunities for students interested in computer science and technology.
               </p>
             </section>
             <Separator className="my-8" />
@@ -52,17 +52,17 @@ export default function Home() {
                   <CardHeader className="flex-row space-x-3">
                     <Image
                       src="/riverhacks-23.png"
-                      alt="Riverhacks logo"
+                      alt="RiverHacks logo"
                       width={64}
                       height={64}
                       className="top-0" />
-                    <CardTitle>Riverhacks 2024</CardTitle>
+                    <CardTitle>RiverHacks 2024</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <CardDescription>
                       Dates: April 13- 14, 2024
 
-                      Riverhacks 2024 is our third annual hackathon event. Whether youre the absolute beginner or experienced, this is the perfect opportunity to learn and create projects
+                      RiverHacks 2024 is our third annual hackathon event. Whether you're an absolute beginner or experienced, this is the perfect opportunity to learn and create projects
                     </CardDescription>
                   </CardContent>
                 </Card>
@@ -75,13 +75,13 @@ export default function Home() {
                       width={64}
                       height={64}
                       className="top-0" />
-                    <CardTitle>Riverhacks 2023</CardTitle>
+                    <CardTitle>RiverHacks 2023</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <CardDescription>
                       Dates: May 18–19, 2023
 
-                      Riverhacks 2023 was our second annual hackathon  hackathon event. Whether youre the absolute beginner or experienced, this is the perfect opportunity to learn and create projects
+                      RiverHacks 2023 was our second annual hackathon event. Whether you're an absolute beginner or experienced, this is the perfect opportunity to learn and create projects
                     </CardDescription>
                   </CardContent>
                   <CardFooter>
@@ -92,17 +92,17 @@ export default function Home() {
                   <CardHeader className="flex-row space-x-3">
                     <Image
                       src="/riverhacks-22.png"
-                      alt="Riverhacks logo"
+                      alt="RiverHacks logo"
                       width={64}
                       height={64}
                       className="top-0" />
-                    <CardTitle>Riverhacks 2022</CardTitle>
+                    <CardTitle>RiverHacks 2022</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <CardDescription>
                       Dates: May 20-21, 2022
 
-                      Our first hackathon, Riverhacks 2022, was a huge success! We had 42 participants and 11 projects submitted.
+                      Our first hackathon, RiverHacks 2022, was a huge success! We had 42 participants and 11 projects submitted.
                     </CardDescription>
                   </CardContent>
                   <CardFooter>
@@ -124,7 +124,7 @@ export default function Home() {
                       <CardHeader className="flex-row space-x-3">
                         <Image
                           src="/riverhacks-23.png"
-                          alt="Riverhacks logo"
+                          alt="RiverHacks logo"
                           width={64}
                           height={64}
                           className="top-0" />
@@ -142,7 +142,7 @@ export default function Home() {
                       <CardHeader className="flex-row space-x-3">
                         <Image
                           src="/riverhacks-23.png"
-                          alt="Riverhacks logo"
+                          alt="RiverHacks logo"
                           width={64}
                           height={64}
                           className="top-0" />
@@ -155,7 +155,7 @@ export default function Home() {
                       </CardContent>
                     </Card>
                   </CarouselItem>
-                  <CarouselItem><Card><CardHeader className="flex-row space-x-3"><Image src="/riverhacks-23.png" alt="Riverhacks logo" width={128} height={128} className="top-0" /><CardTitle>Event 3</CardTitle></CardHeader><CardContent><CardDescription>Description of event 3</CardDescription></CardContent></Card></CarouselItem></CarouselContent></Carousel>
+                  <CarouselItem><Card><CardHeader className="flex-row space-x-3"><Image src="/riverhacks-23.png" alt="RiverHacks logo" width={128} height={128} className="top-0" /><CardTitle>Event 3</CardTitle></CardHeader><CardContent><CardDescription>Description of event 3</CardDescription></CardContent></Card></CarouselItem></CarouselContent></Carousel>
 
 
             </section>
