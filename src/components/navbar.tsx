@@ -22,11 +22,13 @@ export default function Navbar() {
     const [isSheetOpen, setSheetOpen] = React.useState(false);
     const toggleSheet = () => setSheetOpen(!isSheetOpen);
 
-    const [isLargeScreen, setIsLargeScreen] = React.useState(false);
+    const [isMediumScreen, setIsMediumScreen] = React.useState(false);
+    const [isSmallScreen, setIsSmallScreen] = React.useState(false);
 
     React.useEffect(() => {
         const handleResize = () => {
-            setIsLargeScreen(window.innerWidth >= 768);
+            setIsMediumScreen(window.innerWidth >= 768);
+            setIsSmallScreen(window.innerWidth < 768);
         };
 
         handleResize();
@@ -45,42 +47,50 @@ export default function Navbar() {
 
     return (
         <header className="sticky top-0 z-50 w-full border-b border-border/50 backdrop-blur-2xl supports-[backdrop-filter]:bg-inherit dark:backdrop-blur-2xl dark:border-border/50 ">
-            <div className='container flex xs:flex-row sm:flex-row md:flex-row h-20px items-center'>
-                <Sheet>
-                    <SheetTrigger className=' flex items-center space-x-6 ml-6 md:hidden' asChild>
-                        <Button variant='outline' size='icon' className='shrink-0 my-3 bg-card/50 backdrop-blur-sm md:hidden'>
-                            <Menu className='w-6 h-12 ' />
-                            <span className='sr-only'>Open navigation</span>
-                        </Button>
-                    </SheetTrigger>
-                    {isLargeScreen && (
+            <div className='container flex xs:flex-row sm:flex-row md:flex-row h-20px items-center justify-between'>
+                <div className='flex items-center'>
+                    {isMediumScreen && (
                         <Image src={`/logo${resolvedTheme === 'dark' ? 'Dark' : 'Light'}.svg`} alt='ACM at ACC' height={64} width={64} className='ml-5 my-3' />
                     )}
+                    {isSmallScreen && (
+                        <Image src={`/logo${resolvedTheme === 'dark' ? 'Dark' : 'Light'}.svg`} alt='ACM at ACC' height={48} width={48} className='ml-5 my-3' />
+                    )}
                     <TypographyH3 className='mx-5'>ACM at ACC</TypographyH3>
-                    <SheetContent className='md:hidden'>
-                        <nav className='flex flex-col items-center gap-6 select'>
+                </div>
+                <div className='flex flex-1 items-center justify-end space-x-2 pr-6'>
+                    <div className='hidden sm:flex sm:space-x-4 md:flex md:space-x-6 text-sm'>
+                        <nav className='hidden md:flex md:items-center sm:gap-4 md:gap-6 select'>
                             <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#about'>About Us</a></TypographyMuted>
                             <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#hackathons'>Hackathons</a></TypographyMuted>
                             <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#events'>Events</a></TypographyMuted>
                             <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#resources'>Resources</a></TypographyMuted>
                             <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#contact'>Contact</a></TypographyMuted>
                         </nav>
-                    </SheetContent>
-                </Sheet>
-                <div className='hidden sm:flex sm:space-x-4 md:flex md:space-x-6 text-sm'>
-                    <nav className='hidden md:flex md:items-center sm:gap-4 md:gap-6 select'>
-                        <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#about'>About Us</a></TypographyMuted>
-                        <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#hackathons'>Hackathons</a></TypographyMuted>
-                        <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#events'>Events</a></TypographyMuted>
-                        <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#resources'>Resources</a></TypographyMuted>
-                        <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#contact'>Contact</a></TypographyMuted>
-                    </nav>
-                </div>
-                <div className='flex flex-1 sm:flex-row md:flex-row items-center justify-end space-x-2 pr-6'>
+                    </div>
                     <ThemeSelector />
+                    <Sheet>
+                        <SheetTrigger className='flex items-center space-x-6 ml-6 md:hidden' asChild>
+                            <Button variant='outline' size='icon' className='shrink-0 my-3 bg-card/20 backdrop-blur-sm'>
+                                <Menu className='w-6 h-12 ' />
+                                <span className='sr-only'>Open navigation</span>
+                            </Button>
+                        </SheetTrigger>
+                        <SheetContent className='md:hidden'>
+                            <nav className='flex flex-col items-center justify-end gap-6 select'>
+                                <div className='flex flex-row items-center space-x-2'>
+                                    <Image src={`/logo${resolvedTheme === 'dark' ? 'Dark' : 'Light'}.svg`} alt='ACM at ACC' height={48} width={48} className='ml-5 my-3' />
+                                    <TypographyH1>ACM at ACC</TypographyH1>
+                                </div>
+                                <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#about'>About Us</a></TypographyMuted>
+                                <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#hackathons'>Hackathons</a></TypographyMuted>
+                                <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#events'>Events</a></TypographyMuted>
+                                <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#resources'>Resources</a></TypographyMuted>
+                                <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#contact'>Contact</a></TypographyMuted>
+                            </nav>
+                        </SheetContent>
+                    </Sheet>
                 </div>
             </div>
-
         </header >
     );
 }
