@@ -112,11 +112,11 @@ export default function Navbar() {
                 <div className='flex items-center justify-end space-x-2 pr-6'>
                     <div className={`mr-2 flex-auto min-w-0 ${isMediumScreen ? 'flex space-x-4' : 'hidden'} md:flex md:space-x-6 text-sm`}>
                         <nav className='flex items-center gap-4 select'>
-                            <Link href='#hackathons' passHref><TypographyNavLink className='lg:inline-flex hidden'>Hackathons</TypographyNavLink></Link>
-                            <Link href='#about' passHref><TypographyNavLink className='md:inline-flex hidden'>About Us</TypographyNavLink></Link>
-                            <Link href='#events' passHref><TypographyNavLink className='sm:inline-flex hidden'>Events</TypographyNavLink></Link>
-                            <Link href='#resources' passHref><TypographyNavLink className='xs:inline-flex hidden'>Resources</TypographyNavLink></Link>
-                            <Link href='#contact' passHref><TypographyNavLink className='inline-flex'>Contact</TypographyNavLink></Link>
+                            <Link href='#about' passHref onClick={handleClick}><TypographyNavLink className='md:inline-flex hidden'>About Us</TypographyNavLink></Link>
+                            <Link href='#hackathons' passHref onClick={handleClick}><TypographyNavLink className='lg:inline-flex hidden'>Hackathons</TypographyNavLink></Link>
+                            <Link href='#events' passHref onClick={handleClick}><TypographyNavLink className='sm:inline-flex hidden'>Events</TypographyNavLink></Link>
+                            <Link href='#resources' passHref onClick={handleClick}><TypographyNavLink className='xs:inline-flex hidden'>Resources</TypographyNavLink></Link>
+                            <Link href='#contact' passHref onClick={handleClick}><TypographyNavLink className='inline-flex'>Contact</TypographyNavLink></Link>
                         </nav>
                     </div>
                     <ThemeSelector />
@@ -129,11 +129,11 @@ export default function Navbar() {
                         </SheetTrigger>
                         <SheetContent className='md:hidden'>
                             <nav className='flex flex-col items-center justify-end gap-6 select'>
-                                <Link href='#about' passHref><TypographyNavLink >About Us</TypographyNavLink></Link>
-                                <Link href='#hackathons' passHref><TypographyNavLink >Hackathons</TypographyNavLink></Link>
-                                <Link href='#events' passHref><TypographyNavLink >Events</TypographyNavLink></Link>
-                                <Link href='#resources' passHref><TypographyNavLink >Resources</TypographyNavLink></Link>
-                                <Link href='#contact' passHref><TypographyNavLink >Contact</TypographyNavLink></Link>
+                                <Link href='#about' passHref onClick={handleClick}><TypographyNavLink>About Us</TypographyNavLink></Link>
+                                <Link href='#hackathons' passHref onClick={handleClick}><TypographyNavLink >Hackathons</TypographyNavLink></Link>
+                                <Link href='#events' passHref onClick={handleClick}><TypographyNavLink >Events</TypographyNavLink></Link>
+                                <Link href='#resources' passHref onClick={handleClick}><TypographyNavLink >Resources</TypographyNavLink></Link>
+                                <Link href='#contact' passHref onClick={handleClick}><TypographyNavLink >Contact</TypographyNavLink></Link>
                             </nav>
                         </SheetContent>
                     </Sheet>
@@ -206,21 +206,16 @@ export function NavbarHackathon() {
                         <TypographyMuted className='md:hidden'>Association for Computing Machinery</TypographyMuted>
                         <TypographyMuted className='line-clamp-1'>Student Chapter</TypographyMuted>
                     </div></Link>
-                    <TypographyH3 className='mx-5'><a href='/'>
-                        ACC ACM Student Chapter</a></TypographyH3>
+
                 </div>
                 <div className='flex flex-1 items-center justify-end space-x-2 pr-6'>
                     <div className='hidden sm:flex sm:space-x-4 md:flex md:space-x-6 text-sm'>
                         <nav className='hidden md:flex md:items-center sm:gap-4 md:gap-6 select'>
-                            <Link href="#about" passHref><TypographyNavLink>About Riverhacks</TypographyNavLink></Link>
-                            <Link href="#schedule" passHref><TypographyNavLink>Schedule</TypographyNavLink></Link>
-                            <Link href="#faq" passHref><TypographyNavLink>FAQ</TypographyNavLink></Link>
-                            <Link href="#sponsors" passHref><TypographyNavLink>Sponsors</TypographyNavLink></Link>
-                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#about' onClick={handleClick}>About Us</a></TypographyMuted>
-                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#hackathons' onClick={handleClick}>Hackathons</a></TypographyMuted>
-                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#events' onClick={handleClick}>Events</a></TypographyMuted>
-                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#resources' onClick={handleClick}>Resources</a></TypographyMuted>
-                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#contact' onClick={handleClick}>Contact</a></TypographyMuted>
+                            <Link href="#about" passHref><TypographyNavLink >Riverhacks</TypographyNavLink></Link>
+                            <Link href="#schedule" passHref><TypographyNavLink >Schedule</TypographyNavLink></Link>
+                            <Link href="#faq" passHref><TypographyNavLink >FAQ</TypographyNavLink></Link>
+                            <Link href="#sponsors" passHref><TypographyNavLink >Sponsors</TypographyNavLink></Link>
+
                         </nav>
                     </div>
                     <ThemeSelector />
@@ -233,10 +228,10 @@ export function NavbarHackathon() {
                         </SheetTrigger>
                         <SheetContent className='md:hidden'>
                             <nav className='flex flex-col items-center justify-end gap-6 select'>
-                                <Link href="#about" passHref><TypographyNavLink>About Riverhacks</TypographyNavLink></Link>
-                                <Link href="#schedule" passHref><TypographyNavLink>Schedule</TypographyNavLink></Link>
-                                <Link href="#faq" passHref><TypographyNavLink>FAQ</TypographyNavLink></Link>
-                                <Link href="#sponsors" passHref><TypographyNavLink>Sponsors</TypographyNavLink></Link>
+                                <Link href="#about" passHref><TypographyNavLink >About Riverhacks</TypographyNavLink></Link>
+                                <Link href="#schedule" passHref><TypographyNavLink >Schedule</TypographyNavLink></Link>
+                                <Link href="#faq" passHref><TypographyNavLink >FAQ</TypographyNavLink></Link>
+                                <Link href="#sponsors" passHref><TypographyNavLink >Sponsors</TypographyNavLink></Link>
 
                             </nav>
                         </SheetContent>

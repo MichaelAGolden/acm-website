@@ -159,10 +159,11 @@ export default function Home() {
                 workshops, hackathons, and socials.
               </p>
               <Separator className='my-10' />
-              <Carousel className='w-full min-w-fit' opts={{ align: 'center' }}>
+              <Carousel className='md:max-w-min' opts={{ align: 'center' }}>
                 <CarouselPrevious />
-                <CarouselContent >
+                <CarouselContent className='flex items-center aspect-auto justify-center px-2' >
                   <CarouselItem className='basis-1/3'>
+
                     <Card>
                       <CardHeader className="flex-row space-x-3">
                         <Image
@@ -180,6 +181,7 @@ export default function Home() {
                         </CardDescription>
                       </CardContent>
                     </Card>
+
                   </CarouselItem>
                   <CarouselItem className='basis-1/3'>
                     <Card>
