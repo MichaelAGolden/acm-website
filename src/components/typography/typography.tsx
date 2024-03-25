@@ -62,4 +62,9 @@ const TypographyMuted = React.forwardRef<HTMLParagraphElement, React.HTMLAttribu
 ))
 TypographyMuted.displayName = "TypographyMuted"
 
-export { TypographyH1, TypographyH2, TypographyH3, TypographyH4, TypographyP, TypographyBlockquote, TypographyList, TypographyInlineCode, TypographyLead, TypographyLarge, TypographySmall, TypographyMuted }
+const TypographyNavLink = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(({ className, ...props }, ref) => (
+	<p ref={ref} className={cn("transition-colors hover:text-foreground text-foreground/60", className)} {...props} />
+))
+TypographyNavLink.displayName = "TypographyNavLink"
+
+export { TypographyH1, TypographyH2, TypographyH3, TypographyH4, TypographyP, TypographyBlockquote, TypographyList, TypographyInlineCode, TypographyLead, TypographyLarge, TypographySmall, TypographyMuted, TypographyNavLink }
