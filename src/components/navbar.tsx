@@ -55,7 +55,8 @@ export default function Navbar() {
                     {isSmallScreen && (
                         <Image src={`/logo${resolvedTheme === 'dark' ? 'Dark' : 'Light'}.svg`} alt='ACM at ACC' height={48} width={48} className='ml-5 my-3' />
                     )}
-                    <TypographyH3 className='mx-5'>ACM at ACC</TypographyH3>
+                    <TypographyH3 className='mx-5'><a href='/'>
+                        ACM at ACC</a></TypographyH3>
                 </div>
                 <div className='flex flex-1 items-center justify-end space-x-2 pr-6'>
                     <div className='hidden sm:flex sm:space-x-4 md:flex md:space-x-6 text-sm'>
