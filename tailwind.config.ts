@@ -1,11 +1,11 @@
 import type { Config } from "tailwindcss"
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 const config = {
   darkMode: ["class"],
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
-    './components/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
   ],
@@ -13,28 +13,56 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "rem",
       screens: {
         "2xl": "1400px",
       },
     },
     extend: {
+      screens: {
+        'xs': '375px',
+        ...defaultTheme.screens,
+      },
       colors: {
-
         border: "hsl(var(--border))",
-        "border-border\/20": "hsl(var(--border), 0.2)",
-        "border-border\/40": "hsl(var(--border), 0.4)",
-        "border-border\/60": "hsl(var(--border), 0.6)",
-
-        foreground: "hsl(var(--foreground))",
-        "text-foreground": "hsl(var(--foreground))",
-        "text-foreground\/60": "hsl(var(--foreground), 0.6)",
-        "text-foreground\/80": "hsl(var(--foreground), 0.8)",
-
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
-        "text-background": "hsl(var(--background))",
-        "text-background\/20": "hsl(var(--background), 0.2)",
-        "text-background\/60": "hsl(var(--background), 0.6)",
+        foreground: "hsl(var(--foreground))",
+
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
         "accordion-down": {
