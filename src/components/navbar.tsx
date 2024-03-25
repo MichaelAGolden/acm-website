@@ -25,6 +25,17 @@ export default function Navbar() {
     const [isMediumScreen, setIsMediumScreen] = React.useState(false);
     const [isSmallScreen, setIsSmallScreen] = React.useState(false);
 
+    const handleClick = (e) => {
+        e.preventDefault(); //prevent default anchor link behavior
+        const href =e.currentTarget.getAttribute('href'); // Get the href attribute of the clicked element
+        const offsetTop = document.querySelector(href).offsetTop - 40; // Get the top offset of the target element and subtract the height of the navbar
+        
+        window.scrollTo({
+            top: offsetTop,
+            behavior: 'smooth'
+        });
+    };
+
     React.useEffect(() => {
         const handleResize = () => {
             setIsMediumScreen(window.innerWidth >= 768);
@@ -37,6 +48,8 @@ export default function Navbar() {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
+    
+
     }, []);
 
     React.useEffect(() => {
@@ -61,11 +74,11 @@ export default function Navbar() {
                 <div className='flex flex-1 items-center justify-end space-x-2 pr-6'>
                     <div className='hidden sm:flex sm:space-x-4 md:flex md:space-x-6 text-sm'>
                         <nav className='hidden md:flex md:items-center sm:gap-4 md:gap-6 select'>
-                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#about'>About Us</a></TypographyMuted>
-                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#hackathons'>Hackathons</a></TypographyMuted>
-                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#events'>Events</a></TypographyMuted>
-                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#resources'>Resources</a></TypographyMuted>
-                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#contact'>Contact</a></TypographyMuted>
+                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#about' onClick={handleClick}>About Us</a></TypographyMuted>
+                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#hackathons' onClick={handleClick}>Hackathons</a></TypographyMuted>
+                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#events' onClick={handleClick}>Events</a></TypographyMuted>
+                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#resources' onClick={handleClick}>Resources</a></TypographyMuted>
+                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#contact' onClick={handleClick}>Contact</a></TypographyMuted>
                         </nav>
                     </div>
                     <ThemeSelector />
