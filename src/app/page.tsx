@@ -11,7 +11,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 
 export default function Home() {
@@ -30,7 +30,7 @@ export default function Home() {
                     Sign Up
                   </a>
                 </Button>
-                <Button variant="secondary">
+                <Button>
                   <a>
                     Learn More
                   </a>
@@ -118,6 +118,7 @@ export default function Home() {
                 We host a variety of events throughout the year, including workshops, hackathons, and socials.
               </p>
               <Carousel>
+                <CarouselPrevious />
                 <CarouselContent>
                   <CarouselItem>
                     <Card>
@@ -125,8 +126,8 @@ export default function Home() {
                         <Image
                           src="/riverhacks-23.png"
                           alt="RiverHacks logo"
-                          width={64}
-                          height={64}
+                          width={128}
+                          height={128}
                           className="top-0" />
                         <CardTitle>Event 1</CardTitle>
                       </CardHeader>
@@ -143,8 +144,8 @@ export default function Home() {
                         <Image
                           src="/riverhacks-23.png"
                           alt="RiverHacks logo"
-                          width={64}
-                          height={64}
+                          width={128}
+                          height={128}
                           className="top-0" />
                         <CardTitle>Event 2</CardTitle>
                       </CardHeader>
@@ -155,10 +156,22 @@ export default function Home() {
                       </CardContent>
                     </Card>
                   </CarouselItem>
-                  <CarouselItem><Card><CardHeader className="flex-row space-x-3"><Image src="/riverhacks-23.png" alt="RiverHacks logo" width={128} height={128} className="top-0" /><CardTitle>Event 3</CardTitle></CardHeader><CardContent><CardDescription>Description of event 3</CardDescription></CardContent></Card></CarouselItem></CarouselContent></Carousel>
-
-
+                  <CarouselItem>
+                    <Card>
+                      <CardHeader className="flex-row space-x-3">
+                        <Image src="/riverhacks-23.png" alt="RiverHacks logo" width={128} height={128} className="top-0" />
+                        <CardTitle>Event 3</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <CardDescription>Description of event 3</CardDescription>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                </CarouselContent>
+                <CarouselNext />
+              </Carousel>
             </section>
+
             <Separator className="my-8" />
             <section id="resources">
               <h2 className="text-2xl font-bold">Resources</h2>
