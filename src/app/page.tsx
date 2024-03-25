@@ -22,7 +22,7 @@ export default function Home() {
         <div className="container relative">
           <div className="mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20">
             <section className="h-screen text-center">
-              <TypographyH1 className="mb-5 text-center pt-40">ACC ACM</TypographyH1>
+              <TypographyH1 className="mb-5 text-center pt-40">ACM at ACC</TypographyH1>
               <TypographyMuted className="mb-10 text-center">Welcome to the Austin Community College Association for Computing Machinery Student Chapter</TypographyMuted>
               <div className="space-x-5">
                 <Button>
