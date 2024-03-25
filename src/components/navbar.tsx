@@ -22,10 +22,26 @@ import { useRef, useEffect } from 'react';
 export default function Navbar() {
     const { resolvedTheme, setTheme } = useTheme();
     const [isSheetOpen, setSheetOpen] = React.useState(false);
-
+    const toggleSheet = () => setSheetOpen(!isSheetOpen);
 
     const [isMediumScreen, setIsMediumScreen] = React.useState(false);
     const [isSmallScreen, setIsSmallScreen] = React.useState(false);
+
+    const handleClick = (e: React.MouseEvent) => {
+        e.preventDefault(); //prevent default anchor link behavior
+        const href = e.currentTarget.getAttribute('href'); // Get the href attribute of the clicked element
+
+        if (href !== null) {
+            const element = document.querySelector(href) as HTMLElement; // Get the target element by selecting the href attribute
+            if (element !== null) {
+                const offsetTop = element.offsetTop - 40; // Get the top offset of the target element and subtract the height of the navbar
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    };
 
     React.useEffect(() => {
         const handleResize = () => {
@@ -136,6 +152,22 @@ export function NavbarHackathon() {
     const [isMediumScreen, setIsMediumScreen] = React.useState(false);
     const [isSmallScreen, setIsSmallScreen] = React.useState(false);
 
+    const handleClick = (e: React.MouseEvent) => {
+        e.preventDefault(); //prevent default anchor link behavior
+        const href = e.currentTarget.getAttribute('href'); // Get the href attribute of the clicked element
+
+        if (href !== null) {
+            const element = document.querySelector(href) as HTMLElement; // Get the target element by selecting the href attribute
+            if (element !== null) {
+                const offsetTop = element.offsetTop - 40; // Get the top offset of the target element and subtract the height of the navbar
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    };
+
     React.useEffect(() => {
         const handleResize = () => {
             setIsMediumScreen(window.innerWidth >= 768);
@@ -148,6 +180,8 @@ export function NavbarHackathon() {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
+
+
     }, []);
 
     React.useEffect(() => {
@@ -172,6 +206,8 @@ export function NavbarHackathon() {
                         <TypographyMuted className='md:hidden'>Association for Computing Machinery</TypographyMuted>
                         <TypographyMuted className='line-clamp-1'>Student Chapter</TypographyMuted>
                     </div></Link>
+                    <TypographyH3 className='mx-5'><a href='/'>
+                        ACC ACM Student Chapter</a></TypographyH3>
                 </div>
                 <div className='flex flex-1 items-center justify-end space-x-2 pr-6'>
                     <div className='hidden sm:flex sm:space-x-4 md:flex md:space-x-6 text-sm'>
@@ -180,6 +216,11 @@ export function NavbarHackathon() {
                             <Link href="#schedule" passHref><TypographyNavLink>Schedule</TypographyNavLink></Link>
                             <Link href="#faq" passHref><TypographyNavLink>FAQ</TypographyNavLink></Link>
                             <Link href="#sponsors" passHref><TypographyNavLink>Sponsors</TypographyNavLink></Link>
+                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#about' onClick={handleClick}>About Us</a></TypographyMuted>
+                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#hackathons' onClick={handleClick}>Hackathons</a></TypographyMuted>
+                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#events' onClick={handleClick}>Events</a></TypographyMuted>
+                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#resources' onClick={handleClick}>Resources</a></TypographyMuted>
+                            <TypographyMuted className='transition-colors hover:text-foreground text-foreground/60'><a href='#contact' onClick={handleClick}>Contact</a></TypographyMuted>
                         </nav>
                     </div>
                     <ThemeSelector />

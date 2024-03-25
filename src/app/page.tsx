@@ -18,15 +18,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
-import Image from 'next/image';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from '@/components/ui/carousel';
+} from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import Image from "next/image";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import Link from 'next/link';
 
 
@@ -164,6 +160,7 @@ export default function Home() {
               </p>
               <Separator className='my-10' />
               <Carousel className='w-full min-w-fit' opts={{ align: 'center' }}>
+                <CarouselPrevious />
                 <CarouselContent >
                   <CarouselItem className='basis-1/3'>
                     <Card>
@@ -261,8 +258,10 @@ export default function Home() {
                     </Card>
                   </CarouselItem>
                 </CarouselContent>
+                <CarouselNext />
               </Carousel>
             </section>
+
             <Separator className="my-8" />
             <section id="resources">
               <h2 className="text-2xl font-bold">Resources</h2>
