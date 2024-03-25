@@ -25,15 +25,20 @@ export default function Navbar() {
     const [isMediumScreen, setIsMediumScreen] = React.useState(false);
     const [isSmallScreen, setIsSmallScreen] = React.useState(false);
 
-    const handleClick = (e) => {
+    const handleClick = (e: React.MouseEvent) => {
         e.preventDefault(); //prevent default anchor link behavior
-        const href =e.currentTarget.getAttribute('href'); // Get the href attribute of the clicked element
-        const offsetTop = document.querySelector(href).offsetTop - 40; // Get the top offset of the target element and subtract the height of the navbar
-        
-        window.scrollTo({
-            top: offsetTop,
-            behavior: 'smooth'
-        });
+        const href = e.currentTarget.getAttribute('href'); // Get the href attribute of the clicked element
+    
+        if (href !== null) {
+            const element = document.querySelector(href) as HTMLElement; // Get the target element by selecting the href attribute
+            if (element !== null) {
+                const offsetTop = element.offsetTop - 40; // Get the top offset of the target element and subtract the height of the navbar
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }
+        }
     };
 
     React.useEffect(() => {
