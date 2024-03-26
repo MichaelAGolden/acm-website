@@ -110,7 +110,7 @@ export default function Navbar() {
                 <div className='flex flex-1 items-center justify-end space-x-2 pr-6'>
                     <div className='hidden sm:flex sm:space-x-4 md:flex md:space-x-6 text-sm'>
                         <nav className='hidden md:flex md:items-center sm:gap-4 md:gap-6 select'>
-                            <Link href="/riverhacks" passHref ><TypographyNavLink >Riverhacks 2024</TypographyNavLink></Link>
+                            <Link href="/riverhacks" passHref ><TypographyNavLink >RiverHacks 2024</TypographyNavLink></Link>
                             <Link href="#about" passHref onClick={handleClick}><TypographyNavLink >About Us</TypographyNavLink></Link>
                             <Link href="#pastevents" passHref onClick={handleClick}><TypographyNavLink >Past Events</TypographyNavLink></Link>
                             <Link href="#resources" passHref onClick={handleClick}><TypographyNavLink >Resources</TypographyNavLink></Link>
@@ -127,7 +127,7 @@ export default function Navbar() {
                         </SheetTrigger>
                         <SheetContent className='md:hidden'>
                             <nav className='flex flex-col items-end justify-end gap-6 select pt-10'>
-                                <Link href='/riverhacks' passHref><TypographyH4 className='hover:text-background hover:bg-foreground hover:cover'>Riverhacks 2024</TypographyH4></Link>
+                                <Link href='/riverhacks' passHref><TypographyH4 className='hover:text-background hover:bg-foreground hover:cover'>RiverHacks 2024</TypographyH4></Link>
                                 <Link href='#about' passHref onClick={handleClick}><TypographyH4 className='hover:text-background hover:bg-foreground hover:cover'>About Us</TypographyH4></Link>
                                 <Link href='#pastevents' passHref onClick={handleClick}><TypographyH4 className='hover:text-background hover:bg-foreground'>Past Events</TypographyH4></Link>
                                 <Link href='#resources' passHref onClick={handleClick}><TypographyH4 className='hover:text-background hover:bg-foreground'>Resources</TypographyH4></Link>
@@ -233,7 +233,7 @@ export function NavbarHackathon() {
                 <div className='flex flex-1 items-center justify-end space-x-2 pr-6'>
                     <div className='hidden sm:flex sm:space-x-4 md:flex md:space-x-6 text-sm'>
                         <nav className='hidden md:flex md:items-center sm:gap-4 md:gap-6 select'>
-                            <Link href="#about" passHref onClick={handleClick}><TypographyNavLink >Riverhacks</TypographyNavLink></Link>
+                            <Link href="#about" passHref onClick={handleClick}><TypographyNavLink >RiverHacks</TypographyNavLink></Link>
                             <Link href="#schedule" passHref onClick={handleClick}><TypographyNavLink >Schedule</TypographyNavLink></Link>
                             <Link href="#faq" passHref onClick={handleClick}><TypographyNavLink >FAQ</TypographyNavLink></Link>
                             <Link href="#sponsors" passHref onClick={handleClick}><TypographyNavLink >Sponsors</TypographyNavLink></Link>
@@ -249,7 +249,7 @@ export function NavbarHackathon() {
                         </SheetTrigger>
                         <SheetContent className='md:hidden'>
                             <nav className='flex flex-col items-end justify-end gap-6 select pt-10 hover:bg-text-foreground'>
-                                <Link href="#about" passHref onClick={handleClick}><TypographyH4 className='hover:text-background hover:bg-foreground hover:cover'>About Riverhacks</TypographyH4></Link>
+                                <Link href="#about" passHref onClick={handleClick}><TypographyH4 className='hover:text-background hover:bg-foreground hover:cover'>About RiverHacks</TypographyH4></Link>
                                 <Link href="#schedule" passHref onClick={handleClick}><TypographyH4 className='hover:text-background hover:bg-foreground hover:cover'>Schedule</TypographyH4></Link>
                                 <Link href="#faq" passHref onClick={handleClick}><TypographyH4 className='hover:text-background hover:bg-foreground hover:cover'>FAQ</TypographyH4></Link>
                                 <Link href="#sponsors" passHref onClick={handleClick}><TypographyH4 className='hover:text-background hover:bg-foreground hover:cover'>Sponsors</TypographyH4></Link>

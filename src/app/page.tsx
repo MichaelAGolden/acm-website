@@ -103,7 +103,7 @@ export default function Home() {
                   <CardHeader className="flex-row space-x-3">
                     <Image
                       src="/riverhacks-23.png"
-                      alt="Riverhacks logo"
+                      alt="RiverHacks logo"
                       width={64}
                       height={64}
                       className="top-0"
