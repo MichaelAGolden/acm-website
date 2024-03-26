@@ -173,7 +173,7 @@ export function NavbarHackathon() {
     }, [resolvedTheme, setTheme]);
 
     return (
-        <header className={`sticky top-0 z-50 w-full border-b border-border/50 backdrop-blur-2xl supports-[backdrop-filter]:bg-inherit dark:backdrop-blur-2xl dark:border-border/50 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'
+        <header className={`sticky top-0 z-50 w-full border-b border-border/50 backdrop-blur-2xl supports-[backdrop-filter]:bg-inherit dark:backdrop-blur-2xl dark:border-border/50 transition-transform duration-300 md:translate-y-0 ${isMediumScreen || isSmallScreen ? (isVisible ? 'translate-y-0' : '-translate-y-full') : ''
             }`}>
             <div className='container flex xs:flex-row sm:flex-row md:flex-row h-20px items-center justify-between'>
                 <div className='flex items-center'>
