@@ -43,7 +43,7 @@ export default function RiverhacksLanding() {
 		<div className="relative flex min-h-screen flex-col bg-gradient-to-b from-indigo-200 to-orange-500 dark:from-purple-950 dark:to-orange-300">
 			<NavbarHackathon />
 			<main
-				className="flex-1"
+				className="container flex-1 px-5"
 				style={{ height: 'calc(100vh)-80px' }}>
 				<div className="container relative">
 					<div className="mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20">

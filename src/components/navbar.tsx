@@ -8,21 +8,18 @@ import Image from 'next/image';
 import {
     Sheet,
     SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
-import { TypographyH1, TypographyH2, TypographyH3, TypographyH4, TypographyLead, TypographyNavLink, TypographyMuted, TypographySmall, TypographyP } from '@/components/typography/typography';
+import { TypographyH4, TypographyLead, TypographyNavLink, TypographyMuted, TypographyH3 } from '@/components/typography/typography';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-import { useRef, useEffect } from 'react';
-import useSmoothScroll from '../lib/useSmoothScroll';
+import useSmoothScroll from '@/lib/useSmoothScroll';
+
 
 export default function Navbar() {
     const { resolvedTheme, setTheme } = useTheme();
-    const [isSheetOpen, setSheetOpen] = React.useState(false);
-    const toggleSheet = () => setSheetOpen(!isSheetOpen);
+    const [isVisible, setIsVisible] = React.useState(true);
+    const [lastScrollY, setLastScrollY] = React.useState(0);
 
     const smoothScroll = useSmoothScroll();
 
@@ -49,37 +46,32 @@ export default function Navbar() {
         }
     }, [resolvedTheme, setTheme]);
 
-    const navbarRef = useRef<HTMLElement>(null);
-
-    useEffect(() => {
-        const handleHashChange = () => {
-            const { hash } = window.location;
-            if (hash) {
-                const section = document.querySelector(hash);
-                if (section) {
-                    const navbarHeight = navbarRef.current?.offsetHeight || 0;
-                    const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = sectionTop - navbarHeight;
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth',
-                    });
-                }
+    React.useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY) {
+                // Scrolling down
+                setIsVisible(false);
+            } else {
+                // Scrolling up
+                setIsVisible(true);
             }
+            setLastScrollY(currentScrollY);
         };
 
-        handleHashChange();
-        window.addEventListener('hashchange', handleHashChange);
+        window.addEventListener('scroll', handleScroll);
 
         return () => {
-            window.removeEventListener('hashchange', handleHashChange);
+            window.removeEventListener('scroll', handleScroll);
         };
-    }, []);
+    }, [lastScrollY]);
+
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-border/50 backdrop-blur-2xl supports-[backdrop-filter]:bg-inherit dark:backdrop-blur-2xl dark:border-border/50 ">
+        <header className={`sticky top-0 z-50 w-full border-b border-border/50 backdrop-blur-2xl supports-[backdrop-filter]:bg-inherit dark:backdrop-blur-2xl dark:border-border/50 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'
+            }`}>
             <div className='container flex xs:flex-row sm:flex-row md:flex-row h-20px items-center justify-between'>
-                <div className='flex items-center min-w-fit'>
+                <div className='flex items-center'>
                     {isMediumScreen && (
                         <Image src={`/logo${resolvedTheme === 'dark' ? 'Dark' : 'Light'}.svg`} alt='ACC ACM Logo' height={64} width={64} className='ml-5 my-3' />
                     )}
@@ -87,22 +79,23 @@ export default function Navbar() {
                         <Image src={`/logo${resolvedTheme === 'dark' ? 'Dark' : 'Light'}.svg`} alt='ACC ACM Logo' height={48} width={48} className='ml-5 my-3' />
                     )}
                     <Link href='/' passHref>
-                        <div className='m-5 min-w-fit'>
-                            <TypographyH4 className=' sm:inline sm:line-clamp-1'>Austin Community College</TypographyH4>
-                            <TypographyLead className='hidden md:line-clamp-1 md:inline'>Association for Computing Machinery</TypographyLead>
-                            <TypographyMuted className='md:hidden'>Association for Computing Machinery</TypographyMuted>
-                            <TypographyMuted className='line-clamp-1'>Student Chapter</TypographyMuted>
-                        </div>
-                    </Link>
+                        <div className='p-5 min-w-fit'>
+                            <TypographyH3 className='xs:hidden'>ACC</TypographyH3>
+                            <TypographyH4 className='hidden xs:block sm:line-clamp-1'>Austin Community College</TypographyH4>
+                            <TypographyMuted className='text-xs xs:hidden'>ACM</TypographyMuted>
+                            <TypographyMuted className='hidden xs:block'>Association for Computing Machinery</TypographyMuted>
+                            <TypographyLead className='hidden md:hidden'>Association for Computing Machinery</TypographyLead>
+                            <TypographyMuted className=''>Student Chapter</TypographyMuted>
+                        </div></Link>
                 </div>
-                <div className='flex items-center justify-end space-x-2 pr-6'>
-                    <div className={`mr-2 flex-auto min-w-0 ${isMediumScreen ? 'flex space-x-4' : 'hidden'} md:flex md:space-x-6 text-sm`}>
-                        <nav className='flex items-center gap-4 select'>
-                            <a href='#about' onClick={smoothScroll}><TypographyNavLink className='md:inline-flex hidden'>About Us</TypographyNavLink></a>
-                            <a href='#hackathons' onClick={smoothScroll}><TypographyNavLink className='lg:inline-flex hidden'>Hackathons</TypographyNavLink></a>
-                            <a href='#events' onClick={smoothScroll}><TypographyNavLink className='sm:inline-flex hidden'>Events</TypographyNavLink></a>
-                            <a href='#resources' onClick={smoothScroll}><TypographyNavLink className='xs:inline-flex hidden'>Resources</TypographyNavLink></a>
-                            <a href='#contact' onClick={smoothScroll}><TypographyNavLink className='inline-flex'>Contact</TypographyNavLink></a>
+                <div className='flex flex-1 items-center justify-end space-x-2 pr-6'>
+                    <div className='hidden sm:flex sm:space-x-4 md:flex md:space-x-6 text-sm'>
+                        <nav className='hidden md:flex md:items-center md:gap-6 select'>
+                            <Link href='/riverhacks/' passHref ><TypographyNavLink className='md:inline-flex' >RiverHacks 2024</TypographyNavLink></Link>
+                            <Link href='#about' onClick={smoothScroll}><TypographyNavLink className='md:inline-flex '>About Us</TypographyNavLink></Link>
+                            <Link href='#events' onClick={smoothScroll}><TypographyNavLink className='sm:inline-flex '>Events</TypographyNavLink></Link>
+                            <Link href='#resources' onClick={smoothScroll}><TypographyNavLink className='xs:inline-flex '>Resources</TypographyNavLink></Link>
+                            <Link href='#contact' onClick={smoothScroll}><TypographyNavLink className='inline-flex'>Contact</TypographyNavLink></Link>
                         </nav>
                     </div>
                     <ThemeSelector />
@@ -114,17 +107,17 @@ export default function Navbar() {
                             </Button>
                         </SheetTrigger>
                         <SheetContent className='md:hidden'>
-                            <nav className='flex flex-col items-center justify-end gap-6 select'>
-                                <Link href='#about' passHref onClick={smoothScroll}><TypographyNavLink>About Us</TypographyNavLink></Link>
-                                <Link href='#hackathons' passHref onClick={smoothScroll}><TypographyNavLink >Hackathons</TypographyNavLink></Link>
-                                <Link href='#events' passHref onClick={smoothScroll}><TypographyNavLink >Events</TypographyNavLink></Link>
-                                <Link href='#resources' passHref onClick={smoothScroll}><TypographyNavLink >Resources</TypographyNavLink></Link>
-                                <Link href='#contact' passHref onClick={smoothScroll}><TypographyNavLink >Contact</TypographyNavLink></Link>
+                            <nav className='flex flex-col items-end justify-end gap-6 select pt-10 text-3xl'>
+                                <Link href='/riverhacks/' passHref ><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover' >RiverHacks 2024</TypographyH3></Link>
+                                <Link href='#about' passHref onClick={smoothScroll}><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover'>About Us</TypographyH3></Link>
+                                <Link href='#events' passHref onClick={smoothScroll}><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover' >Events</TypographyH3></Link>
+                                <Link href='#resources' passHref onClick={smoothScroll}><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover' >Resources</TypographyH3></Link>
+                                <Link href='#contact' passHref onClick={smoothScroll}><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover' >Contact</TypographyH3></Link>
                             </nav>
                         </SheetContent>
-                    </Sheet>
-                </div>
-            </div>
+                    </Sheet >
+                </div >
+            </div >
         </header >
     );
 }
@@ -132,11 +125,12 @@ export default function Navbar() {
 
 export function NavbarHackathon() {
     const { resolvedTheme, setTheme } = useTheme();
-    const [isSheetOpen, setSheetOpen] = React.useState(false);
-
-
+    const [isVisible, setIsVisible] = React.useState(true);
+    const [lastScrollY, setLastScrollY] = React.useState(0);
     const [isMediumScreen, setIsMediumScreen] = React.useState(false);
     const [isSmallScreen, setIsSmallScreen] = React.useState(false);
+    const smoothScroll = useSmoothScroll();
+
 
     React.useEffect(() => {
         const handleResize = () => {
@@ -150,9 +144,27 @@ export function NavbarHackathon() {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-
-
     }, []);
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            if (currentScrollY > lastScrollY) {
+                // Scrolling down
+                setIsVisible(false);
+            } else {
+                // Scrolling up
+                setIsVisible(true);
+            }
+            setLastScrollY(currentScrollY);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, [lastScrollY]);
 
     React.useEffect(() => {
         if (resolvedTheme === 'system') {
@@ -161,33 +173,35 @@ export function NavbarHackathon() {
     }, [resolvedTheme, setTheme]);
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-border/50 backdrop-blur-2xl supports-[backdrop-filter]:bg-inherit dark:backdrop-blur-2xl dark:border-border/50 ">
+        <header className={`sticky top-0 z-50 w-full border-b border-border/50 backdrop-blur-2xl supports-[backdrop-filter]:bg-inherit dark:backdrop-blur-2xl dark:border-border/50 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'
+            }`}>
             <div className='container flex xs:flex-row sm:flex-row md:flex-row h-20px items-center justify-between'>
                 <div className='flex items-center'>
                     {isMediumScreen && (
-                        <Image src={`/logo${resolvedTheme === 'dark' ? 'Dark' : 'Light'}.svg`} alt='ACC ACM Student Chapter' height={64} width={64} className='ml-5 my-3' />
+                        <Image src={`/logo${resolvedTheme === 'dark' ? 'Dark' : 'Light'}.svg`} alt='ACC ACM Logo' height={64} width={64} className='ml-5 my-3' />
                     )}
                     {isSmallScreen && (
-                        <Image src={`/logo${resolvedTheme === 'dark' ? 'Dark' : 'Light'}.svg`} alt='ACC ACM Student Chapter' height={48} width={48} className='ml-5 my-3' />
+                        <Image src={`/logo${resolvedTheme === 'dark' ? 'Dark' : 'Light'}.svg`} alt='ACC ACM Logo' height={48} width={48} className='ml-5 my-3' />
                     )}
-                    <Link href='/' passHref><div className='m-5 min-w-fit'>
-                        <TypographyH4 className=' sm:inline sm:line-clamp-1'>Austin Community College</TypographyH4>
-                        <TypographyLead className='hidden md:line-clamp-1 md:inline'>Association for Computing Machinery</TypographyLead>
-                        <TypographyMuted className='md:hidden'>Association for Computing Machinery</TypographyMuted>
-                        <TypographyMuted className='line-clamp-1'>Student Chapter</TypographyMuted>
+                    <Link href='/' passHref><div className='p-5 min-w-fit'>
+                        <TypographyH3 className='xs:hidden'>ACC</TypographyH3>
+                        <TypographyH4 className='hidden xs:block sm:line-clamp-1'>Austin Community College</TypographyH4>
+                        <TypographyMuted className='text-xs xs:hidden'>ACM</TypographyMuted>
+                        <TypographyMuted className='hidden xs:block'>Association for Computing Machinery</TypographyMuted>
+                        <TypographyLead className='hidden md:hidden'>Association for Computing Machinery</TypographyLead>
+                        <TypographyMuted className=''>Student Chapter</TypographyMuted>
                     </div></Link>
-
                 </div>
                 <div className='flex flex-1 items-center justify-end space-x-2 pr-6'>
                     <div className='hidden sm:flex sm:space-x-4 md:flex md:space-x-6 text-sm'>
                         <nav className='hidden md:flex md:items-center sm:gap-4 md:gap-6 select'>
-                            <Link href="#about" passHref><TypographyNavLink >RiverHacks</TypographyNavLink></Link>
-                            <Link href="#schedule" passHref><TypographyNavLink >Schedule</TypographyNavLink></Link>
-                            <Link href="#faq" passHref><TypographyNavLink >FAQ</TypographyNavLink></Link>
-                            <Link href="#sponsors" passHref><TypographyNavLink >Sponsors</TypographyNavLink></Link>
+                            <Link href="#about" passHref onClick={smoothScroll}><TypographyNavLink >About RiverHacks</TypographyNavLink></Link>
+                            <Link href="#schedule" passHref onClick={smoothScroll}><TypographyNavLink >Schedule</TypographyNavLink></Link>
+                            <Link href="#faq" passHref onClick={smoothScroll}><TypographyNavLink >FAQ</TypographyNavLink></Link>
+                            <Link href="#sponsors" passHref onClick={smoothScroll}><TypographyNavLink >Sponsors</TypographyNavLink></Link>
 
-                        </nav>
-                    </div>
+                        </nav >
+                    </div >
                     <ThemeSelector />
                     <Sheet>
                         <SheetTrigger className='flex items-center space-x-6 ml-6 md:hidden' asChild>
@@ -197,18 +211,16 @@ export function NavbarHackathon() {
                             </Button>
                         </SheetTrigger>
                         <SheetContent className='md:hidden'>
-                            <nav className='flex flex-col items-center justify-end gap-6 select'>
-                                <Link href="#about" passHref><TypographyNavLink >About RiverHacks</TypographyNavLink></Link>
-                                <Link href="#schedule" passHref><TypographyNavLink >Schedule</TypographyNavLink></Link>
-                                <Link href="#faq" passHref><TypographyNavLink >FAQ</TypographyNavLink></Link>
-                                <Link href="#sponsors" passHref><TypographyNavLink >Sponsors</TypographyNavLink></Link>
-
+                            <nav className='flex flex-col items-end justify-end gap-6 select pt-10'>
+                                <Link href="#about" passHref onClick={smoothScroll}><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover'>About RiverHacks</TypographyH3></Link>
+                                <Link href="#schedule" passHref onClick={smoothScroll}><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover'>Schedule</TypographyH3></Link>
+                                <Link href="#faq" passHref onClick={smoothScroll}><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover'>FAQ</TypographyH3></Link>
+                                <Link href="#sponsors" passHref onClick={smoothScroll}><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover'>Sponsors</TypographyH3></Link>
                             </nav>
                         </SheetContent>
-                    </Sheet>
-                </div>
-            </div>
+                    </Sheet >
+                </div >
+            </div >
         </header >
     );
 }
-
