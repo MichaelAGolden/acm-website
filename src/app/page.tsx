@@ -28,10 +28,10 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen flex-col bg-gradient-to-b from-indigo-200 to-orange-500 dark:from-purple-950 dark:to-orange-300 ">
+    <div className=" container relative flex min-h-screen flex-col bg-gradient-to-b from-indigo-200 to-orange-500 dark:from-purple-950 dark:to-orange-300 ">
       <Navbar />
       <main
-        className="flex-1"
+        className="container flex-1 px-5"
         style={{ height: 'calc(100vh)-80px' }}>
         <div className="container relative">
           <div className="mx-auto flex max-w-[980px] flex-col items-center gap-2 py-8 md:py-12 md:pb-8 lg:py-24 lg:pb-20">
@@ -60,9 +60,10 @@ export default function Home() {
                 </Link>
               </div>
             </section>
+            <Separator className="my-8" />
             <section
               id="about"
-              className="text-center pt-20">
+              className="pt-20">
               <h2 className="text-2xl font-bold">About Us</h2>
               <p>
                 The Austin Community College ACM Student Chapter is a student
@@ -150,6 +151,7 @@ export default function Home() {
               </div>
               <Separator className="my-8" />
             </section>
+            <Separator className="my-8" />
             <section
               id="events"
               className="pt-20 items-center text-center align-middle">
@@ -158,110 +160,98 @@ export default function Home() {
                 We host a variety of events throughout the year, including
                 workshops, hackathons, and socials.
               </p>
-              <Separator className='my-10' />
-              <Carousel className='md:max-w-min' opts={{ align: 'center' }}>
-                <CarouselPrevious />
-                <CarouselContent className='flex items-center aspect-auto justify-center px-2' >
-                  <CarouselItem className='basis-1/3'>
 
-                    <Card>
-                      <CardHeader className="flex-row space-x-3">
-                        <Image
-                          src="/riverhacks-23.png"
-                          alt="Google Logo"
-                          width={64}
-                          height={64}
-                          className="top-0"
-                        />
-                        <CardTitle>Google Austin Campus Tour</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <CardDescription>
-                          Tour of the Google Austin campus with club members.
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+                <Card>
+                  <CardHeader className="flex-row space-x-3">
+                    <Image
+                      src="/riverhacks-23.png"
+                      alt="Google Logo"
+                      width={64}
+                      height={64}
+                      className="top-0"
+                    />
+                    <CardTitle>Google Austin Campus Tour</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription>
+                      Tour of the Google Austin campus with club members.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
 
-                  </CarouselItem>
-                  <CarouselItem className='basis-1/3'>
-                    <Card>
-                      <CardHeader className="flex-row space-x-3">
-                        <Image
-                          src="/riverhacks-23.png"
-                          alt="CIVO Logo"
-                          width={64}
-                          height={64}
-                          className="top-0"
-                        />
-                        <CardTitle>CIVO Navigate with Club Members</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <CardDescription>
-                          Attending Civo Navigate 2024 in Austin with club members.
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                  <CarouselItem className='basis-1/3'>
-                    <Card>
-                      <CardHeader className="flex-row space-x-3">
-                        <Image
-                          src="/riverhacks-23.png"
-                          alt="RiverHacks logo"
-                          width={64}
-                          height={64}
-                          className="top-0"
-                        />
-                        <CardTitle>Swift Workshop</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <CardDescription>
-                          Workshop on Swift programming language for club members.
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                  <CarouselItem className='basis-1/3'>
-                    <Card>
-                      <CardHeader className="flex-row space-x-3">
-                        <Image
-                          src="/riverhacks-23.png"
-                          alt="RiverHacks logo"
-                          width={64}
-                          height={64}
-                          className="top-0"
-                        />
-                        <CardTitle>RiverHacks 2024</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <CardDescription>
-                          Our annual hackathon event, RiverHacks, happening in 2024.
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                  <CarouselItem className='basis-1/3'>
-                    <Card>
-                      <CardHeader className="flex-row space-x-3">
-                        <Image
-                          src="/riverhacks-23.png"
-                          alt="RiverHacks logo"
-                          width={64}
-                          height={64}
-                          className="top-0"
-                        />
-                        <CardTitle>Speakers in Tech: Riley Hilliard</CardTitle>
-                      </CardHeader>
-                      <CardContent>
-                        <CardDescription>
-                          Tech talk by guest speaker Riley Hilliard for club members.
-                        </CardDescription>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                </CarouselContent>
-                <CarouselNext />
-              </Carousel>
+                <Card>
+                  <CardHeader className="flex-row space-x-3">
+                    <Image
+                      src="/riverhacks-23.png"
+                      alt="CIVO Logo"
+                      width={64}
+                      height={64}
+                      className="top-0"
+                    />
+                    <CardTitle>CIVO Navigate with Club Members</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription>
+                      Attending Civo Navigate 2024 in Austin with club members.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader className="flex-row space-x-3">
+                    <Image
+                      src="/riverhacks-23.png"
+                      alt="RiverHacks logo"
+                      width={64}
+                      height={64}
+                      className="top-0"
+                    />
+                    <CardTitle>Swift Workshop</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription>
+                      Workshop on Swift programming language for club members.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader className="flex-row space-x-3">
+                    <Image
+                      src="/riverhacks-23.png"
+                      alt="RiverHacks logo"
+                      width={64}
+                      height={64}
+                      className="top-0"
+                    />
+                    <CardTitle>RiverHacks 2024</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription>
+                      Our annual hackathon event, RiverHacks, happening in 2024.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+
+                <Card>
+                  <CardHeader className="flex-row space-x-3">
+                    <Image
+                      src="/riverhacks-23.png"
+                      alt="RiverHacks logo"
+                      width={64}
+                      height={64}
+                      className="top-0"
+                    />
+                    <CardTitle>Speakers in Tech: Riley Hilliard</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription>
+                      Tech talk by guest speaker Riley Hilliard for club members.
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </div>
             </section>
 
             <Separator className="my-8" />
