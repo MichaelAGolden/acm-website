@@ -13,37 +13,19 @@ import {
 import { TypographyH4, TypographyLead, TypographyNavLink, TypographyMuted, TypographyH3 } from '@/components/typography/typography';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
-
+import useSmoothScroll from '@/lib/useSmoothScroll';
 
 
 export default function Navbar() {
     const { resolvedTheme, setTheme } = useTheme();
     const [isVisible, setIsVisible] = React.useState(true);
     const [lastScrollY, setLastScrollY] = React.useState(0);
+
+    const smoothScroll = useSmoothScroll();
+
     const [isMediumScreen, setIsMediumScreen] = React.useState(false);
     const [isSmallScreen, setIsSmallScreen] = React.useState(false);
 
-    const handleClick = (e: React.MouseEvent) => {
-        e.preventDefault(); //prevent default anchor link behavior
-        const href = e.currentTarget.getAttribute('href'); // Get the href attribute of the clicked element
-
-        if (href !== null) {
-            const element = document.querySelector(href) as HTMLElement; // Get the target element by selecting the href attribute
-            if (element !== null) {
-                //get height of navbar
-                const navbarHeight = document.querySelector('header')?.getBoundingClientRect().height || 0;
-                const offsetTop = element.offsetTop - navbarHeight; // Get the top offset of the target element and subtract the height of the navbar
-                const sheet = document.querySelector('[data-state="open"]') as HTMLElement;
-                if (sheet !== null) {
-                    sheet.click();
-                }
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    };
     React.useEffect(() => {
         const handleResize = () => {
             setIsMediumScreen(window.innerWidth >= 768);
@@ -108,12 +90,12 @@ export default function Navbar() {
                 </div>
                 <div className='flex flex-1 items-center justify-end space-x-2 pr-6'>
                     <div className='hidden sm:flex sm:space-x-4 md:flex md:space-x-6 text-sm'>
-                        <nav className='hidden md:flex md:items-center sm:gap-4 md:gap-6 select'>
-                            <Link href="/riverhacks" passHref ><TypographyNavLink >RiverHacks 2024</TypographyNavLink></Link>
-                            <Link href="#about" passHref onClick={handleClick}><TypographyNavLink >About Us</TypographyNavLink></Link>
-                            <Link href="#pastevents" passHref onClick={handleClick}><TypographyNavLink >Past Events</TypographyNavLink></Link>
-                            <Link href="#resources" passHref onClick={handleClick}><TypographyNavLink >Resources</TypographyNavLink></Link>
-                            <Link href="#contact" passHref onClick={handleClick}><TypographyNavLink >Contact</TypographyNavLink></Link>
+                        <nav className='hidden md:flex md:items-center md:gap-6 select'>
+                            <Link href='/riverhacks/' passHref ><TypographyNavLink className='md:inline-flex' >RiverHacks 2024</TypographyNavLink></Link>
+                            <Link href='#about' onClick={smoothScroll}><TypographyNavLink className='md:inline-flex '>About Us</TypographyNavLink></Link>
+                            <Link href='#events' onClick={smoothScroll}><TypographyNavLink className='sm:inline-flex '>Events</TypographyNavLink></Link>
+                            <Link href='#resources' onClick={smoothScroll}><TypographyNavLink className='xs:inline-flex '>Resources</TypographyNavLink></Link>
+                            <Link href='#contact' onClick={smoothScroll}><TypographyNavLink className='inline-flex'>Contact</TypographyNavLink></Link>
                         </nav>
                     </div>
                     <ThemeSelector />
@@ -125,17 +107,17 @@ export default function Navbar() {
                             </Button>
                         </SheetTrigger>
                         <SheetContent className='md:hidden'>
-                            <nav className='flex flex-col items-end justify-end gap-6 select pt-10'>
-                                <Link href='/riverhacks' passHref><TypographyH4 className='hover:text-background hover:bg-foreground hover:cover'>RiverHacks 2024</TypographyH4></Link>
-                                <Link href='#about' passHref onClick={handleClick}><TypographyH4 className='hover:text-background hover:bg-foreground hover:cover'>About Us</TypographyH4></Link>
-                                <Link href='#pastevents' passHref onClick={handleClick}><TypographyH4 className='hover:text-background hover:bg-foreground'>Past Events</TypographyH4></Link>
-                                <Link href='#resources' passHref onClick={handleClick}><TypographyH4 className='hover:text-background hover:bg-foreground'>Resources</TypographyH4></Link>
-                                <Link href='#contact' passHref onClick={handleClick}><TypographyH4 className='hover:text-background hover:bg-foreground'>Contact</TypographyH4></Link>
+                            <nav className='flex flex-col items-end justify-end gap-6 select pt-10 text-3xl'>
+                                <Link href='/riverhacks/' passHref ><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover' >RiverHacks 2024</TypographyH3></Link>
+                                <Link href='#about' passHref onClick={smoothScroll}><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover'>About Us</TypographyH3></Link>
+                                <Link href='#events' passHref onClick={smoothScroll}><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover' >Events</TypographyH3></Link>
+                                <Link href='#resources' passHref onClick={smoothScroll}><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover' >Resources</TypographyH3></Link>
+                                <Link href='#contact' passHref onClick={smoothScroll}><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover' >Contact</TypographyH3></Link>
                             </nav>
                         </SheetContent>
-                    </Sheet>
-                </div>
-            </div>
+                    </Sheet >
+                </div >
+            </div >
         </header >
     );
 }
@@ -147,29 +129,8 @@ export function NavbarHackathon() {
     const [lastScrollY, setLastScrollY] = React.useState(0);
     const [isMediumScreen, setIsMediumScreen] = React.useState(false);
     const [isSmallScreen, setIsSmallScreen] = React.useState(false);
+    const smoothScroll = useSmoothScroll();
 
-    const handleClick = (e: React.MouseEvent) => {
-        e.preventDefault(); //prevent default anchor link behavior
-        const href = e.currentTarget.getAttribute('href'); // Get the href attribute of the clicked element
-
-        if (href !== null) {
-            const element = document.querySelector(href) as HTMLElement; // Get the target element by selecting the href attribute
-            if (element !== null) {
-                const sheet = document.querySelector('[data-state="open"]') as HTMLElement;
-                if (sheet !== null) {
-                    sheet.click();
-                }
-
-                if (element !== null) {
-                    const offsetTop = element.getBoundingClientRect().top + window.scrollY;
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            }
-        }
-    };
 
     React.useEffect(() => {
         const handleResize = () => {
@@ -234,12 +195,13 @@ export function NavbarHackathon() {
                 <div className='flex flex-1 items-center justify-end space-x-2 pr-6'>
                     <div className='hidden sm:flex sm:space-x-4 md:flex md:space-x-6 text-sm'>
                         <nav className='hidden md:flex md:items-center sm:gap-4 md:gap-6 select'>
-                            <Link href="#about" passHref onClick={handleClick}><TypographyNavLink >RiverHacks</TypographyNavLink></Link>
-                            <Link href="#schedule" passHref onClick={handleClick}><TypographyNavLink >Schedule</TypographyNavLink></Link>
-                            <Link href="#faq" passHref onClick={handleClick}><TypographyNavLink >FAQ</TypographyNavLink></Link>
-                            <Link href="#sponsors" passHref onClick={handleClick}><TypographyNavLink >Sponsors</TypographyNavLink></Link>
-                        </nav>
-                    </div>
+                            <Link href="#about" passHref onClick={smoothScroll}><TypographyNavLink >About RiverHacks</TypographyNavLink></Link>
+                            <Link href="#schedule" passHref onClick={smoothScroll}><TypographyNavLink >Schedule</TypographyNavLink></Link>
+                            <Link href="#faq" passHref onClick={smoothScroll}><TypographyNavLink >FAQ</TypographyNavLink></Link>
+                            <Link href="#sponsors" passHref onClick={smoothScroll}><TypographyNavLink >Sponsors</TypographyNavLink></Link>
+
+                        </nav >
+                    </div >
                     <ThemeSelector />
                     <Sheet>
                         <SheetTrigger className='flex items-center space-x-6 ml-6 md:hidden' asChild>
@@ -249,16 +211,16 @@ export function NavbarHackathon() {
                             </Button>
                         </SheetTrigger>
                         <SheetContent className='md:hidden'>
-                            <nav className='flex flex-col items-end justify-end gap-6 select pt-10 hover:bg-text-foreground'>
-                                <Link href="#about" passHref onClick={handleClick}><TypographyH4 className='hover:text-background hover:bg-foreground hover:cover'>About RiverHacks</TypographyH4></Link>
-                                <Link href="#schedule" passHref onClick={handleClick}><TypographyH4 className='hover:text-background hover:bg-foreground hover:cover'>Schedule</TypographyH4></Link>
-                                <Link href="#faq" passHref onClick={handleClick}><TypographyH4 className='hover:text-background hover:bg-foreground hover:cover'>FAQ</TypographyH4></Link>
-                                <Link href="#sponsors" passHref onClick={handleClick}><TypographyH4 className='hover:text-background hover:bg-foreground hover:cover'>Sponsors</TypographyH4></Link>
+                            <nav className='flex flex-col items-end justify-end gap-6 select pt-10'>
+                                <Link href="#about" passHref onClick={smoothScroll}><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover'>About RiverHacks</TypographyH3></Link>
+                                <Link href="#schedule" passHref onClick={smoothScroll}><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover'>Schedule</TypographyH3></Link>
+                                <Link href="#faq" passHref onClick={smoothScroll}><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover'>FAQ</TypographyH3></Link>
+                                <Link href="#sponsors" passHref onClick={smoothScroll}><TypographyH3 className='hover:text-background hover:bg-foreground hover:cover'>Sponsors</TypographyH3></Link>
                             </nav>
                         </SheetContent>
-                    </Sheet>
-                </div>
-            </div>
+                    </Sheet >
+                </div >
+            </div >
         </header >
     );
 }
