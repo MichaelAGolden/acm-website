@@ -2,10 +2,12 @@
 
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
+import useSmoothScroll from '../lib/useSmoothScroll';
 
 
 export default function Footer() {
 	const { theme } = useTheme();
+	const smoothScroll = useSmoothScroll();
 
 	return (
 		<footer>
@@ -17,11 +19,11 @@ export default function Footer() {
 					</div>
 				</div>
 				<nav className='hidden sm:flex md:items-center gap-4 md:gap-6 select mb-6 mr-6'>
-					<a className='transition-colors hover:text-foreground text-foreground/60' href=''>About Us</a>
-					<a className='transition-colors hover:text-foreground text-foreground/60' href='#'>Hackathons</a>
-					<a className='transition-colors hover:text-foreground text-foreground/60' href='#'>Events</a>
-					<a className='transition-colors hover:text-foreground text-foreground/60' href='#'>Resources</a>
-					<a className='transition-colors hover:text-foreground text-foreground/60' href='#'>Contact</a>
+					<a className='transition-colors hover:text-foreground text-foreground/60' href='#about' onClick={smoothScroll}>About Us</a>
+					<a className='transition-colors hover:text-foreground text-foreground/60' href='#hackathons' onClick={smoothScroll}>Hackathons</a>
+					<a className='transition-colors hover:text-foreground text-foreground/60' href='#events' onClick={smoothScroll}>Events</a>
+					<a className='transition-colors hover:text-foreground text-foreground/60' href='#resources' onClick={smoothScroll}>Resources</a>
+					<a className='transition-colors hover:text-foreground text-foreground/60' href='#contact' onClick={smoothScroll}>Contact</a>
 				</nav>
 			</div>
 		</footer>
