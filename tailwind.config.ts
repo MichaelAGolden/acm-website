@@ -11,16 +11,21 @@ const config = {
   ],
   prefix: "",
   theme: {
+    screens: {
+      'xs': '435px',
+      ...defaultTheme.screens,
+    },
     container: {
       center: true,
       padding: "rem",
       screens: {
         "2xl": "1400px",
+
       },
     },
     extend: {
       screens: {
-        'xs': '375px',
+        'xs': '435px',
         ...defaultTheme.screens,
       },
       colors: {
