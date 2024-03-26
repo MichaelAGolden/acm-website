@@ -28,7 +28,7 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className=" container relative flex min-h-screen flex-col bg-gradient-to-b from-indigo-200 to-orange-500 dark:from-purple-950 dark:to-orange-300 ">
+    <div className="relative flex min-h-screen flex-col bg-gradient-to-b from-indigo-200 to-orange-500 dark:from-purple-950 dark:to-orange-300 ">
       <Navbar />
       <main
         className="container flex-1 px-5"
