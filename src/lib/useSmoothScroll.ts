@@ -1,6 +1,7 @@
 // useSmoothScroll.ts
 import { useCallback } from 'react';
 
+
 const useSmoothScroll = () => {
     const smoothScroll = useCallback((e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         e.preventDefault();

@@ -17,31 +17,17 @@ import { TypographyH1, TypographyH2, TypographyH3, TypographyH4, TypographyLead,
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { useRef, useEffect } from 'react';
-
+import useSmoothScroll from '../lib/useSmoothScroll';
 
 export default function Navbar() {
     const { resolvedTheme, setTheme } = useTheme();
     const [isSheetOpen, setSheetOpen] = React.useState(false);
     const toggleSheet = () => setSheetOpen(!isSheetOpen);
 
+    const smoothScroll = useSmoothScroll();
+
     const [isMediumScreen, setIsMediumScreen] = React.useState(false);
     const [isSmallScreen, setIsSmallScreen] = React.useState(false);
-
-    const handleClick = (e: React.MouseEvent) => {
-        e.preventDefault(); //prevent default anchor link behavior
-        const href = e.currentTarget.getAttribute('href'); // Get the href attribute of the clicked element
-
-        if (href !== null) {
-            const element = document.querySelector(href) as HTMLElement; // Get the target element by selecting the href attribute
-            if (element !== null) {
-                const offsetTop = element.offsetTop - 40; // Get the top offset of the target element and subtract the height of the navbar
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    };
 
     React.useEffect(() => {
         const handleResize = () => {
@@ -112,11 +98,11 @@ export default function Navbar() {
                 <div className='flex items-center justify-end space-x-2 pr-6'>
                     <div className={`mr-2 flex-auto min-w-0 ${isMediumScreen ? 'flex space-x-4' : 'hidden'} md:flex md:space-x-6 text-sm`}>
                         <nav className='flex items-center gap-4 select'>
-                            <Link href='#about' passHref onClick={handleClick}><TypographyNavLink className='md:inline-flex hidden'>About Us</TypographyNavLink></Link>
-                            <Link href='#hackathons' passHref onClick={handleClick}><TypographyNavLink className='lg:inline-flex hidden'>Hackathons</TypographyNavLink></Link>
-                            <Link href='#events' passHref onClick={handleClick}><TypographyNavLink className='sm:inline-flex hidden'>Events</TypographyNavLink></Link>
-                            <Link href='#resources' passHref onClick={handleClick}><TypographyNavLink className='xs:inline-flex hidden'>Resources</TypographyNavLink></Link>
-                            <Link href='#contact' passHref onClick={handleClick}><TypographyNavLink className='inline-flex'>Contact</TypographyNavLink></Link>
+                            <a href='#about' onClick={smoothScroll}><TypographyNavLink className='md:inline-flex hidden'>About Us</TypographyNavLink></a>
+                            <a href='#hackathons' onClick={smoothScroll}><TypographyNavLink className='lg:inline-flex hidden'>Hackathons</TypographyNavLink></a>
+                            <a href='#events' onClick={smoothScroll}><TypographyNavLink className='sm:inline-flex hidden'>Events</TypographyNavLink></a>
+                            <a href='#resources' onClick={smoothScroll}><TypographyNavLink className='xs:inline-flex hidden'>Resources</TypographyNavLink></a>
+                            <a href='#contact' onClick={smoothScroll}><TypographyNavLink className='inline-flex'>Contact</TypographyNavLink></a>
                         </nav>
                     </div>
                     <ThemeSelector />
@@ -129,11 +115,11 @@ export default function Navbar() {
                         </SheetTrigger>
                         <SheetContent className='md:hidden'>
                             <nav className='flex flex-col items-center justify-end gap-6 select'>
-                                <Link href='#about' passHref onClick={handleClick}><TypographyNavLink>About Us</TypographyNavLink></Link>
-                                <Link href='#hackathons' passHref onClick={handleClick}><TypographyNavLink >Hackathons</TypographyNavLink></Link>
-                                <Link href='#events' passHref onClick={handleClick}><TypographyNavLink >Events</TypographyNavLink></Link>
-                                <Link href='#resources' passHref onClick={handleClick}><TypographyNavLink >Resources</TypographyNavLink></Link>
-                                <Link href='#contact' passHref onClick={handleClick}><TypographyNavLink >Contact</TypographyNavLink></Link>
+                                <Link href='#about' passHref onClick={smoothScroll}><TypographyNavLink>About Us</TypographyNavLink></Link>
+                                <Link href='#hackathons' passHref onClick={smoothScroll}><TypographyNavLink >Hackathons</TypographyNavLink></Link>
+                                <Link href='#events' passHref onClick={smoothScroll}><TypographyNavLink >Events</TypographyNavLink></Link>
+                                <Link href='#resources' passHref onClick={smoothScroll}><TypographyNavLink >Resources</TypographyNavLink></Link>
+                                <Link href='#contact' passHref onClick={smoothScroll}><TypographyNavLink >Contact</TypographyNavLink></Link>
                             </nav>
                         </SheetContent>
                     </Sheet>
@@ -151,22 +137,6 @@ export function NavbarHackathon() {
 
     const [isMediumScreen, setIsMediumScreen] = React.useState(false);
     const [isSmallScreen, setIsSmallScreen] = React.useState(false);
-
-    const handleClick = (e: React.MouseEvent) => {
-        e.preventDefault(); //prevent default anchor link behavior
-        const href = e.currentTarget.getAttribute('href'); // Get the href attribute of the clicked element
-
-        if (href !== null) {
-            const element = document.querySelector(href) as HTMLElement; // Get the target element by selecting the href attribute
-            if (element !== null) {
-                const offsetTop = element.offsetTop - 40; // Get the top offset of the target element and subtract the height of the navbar
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    };
 
     React.useEffect(() => {
         const handleResize = () => {
@@ -211,7 +181,7 @@ export function NavbarHackathon() {
                 <div className='flex flex-1 items-center justify-end space-x-2 pr-6'>
                     <div className='hidden sm:flex sm:space-x-4 md:flex md:space-x-6 text-sm'>
                         <nav className='hidden md:flex md:items-center sm:gap-4 md:gap-6 select'>
-                            <Link href="#about" passHref><TypographyNavLink >Riverhacks</TypographyNavLink></Link>
+                            <Link href="#about" passHref><TypographyNavLink >RiverHacks</TypographyNavLink></Link>
                             <Link href="#schedule" passHref><TypographyNavLink >Schedule</TypographyNavLink></Link>
                             <Link href="#faq" passHref><TypographyNavLink >FAQ</TypographyNavLink></Link>
                             <Link href="#sponsors" passHref><TypographyNavLink >Sponsors</TypographyNavLink></Link>
@@ -228,7 +198,7 @@ export function NavbarHackathon() {
                         </SheetTrigger>
                         <SheetContent className='md:hidden'>
                             <nav className='flex flex-col items-center justify-end gap-6 select'>
-                                <Link href="#about" passHref><TypographyNavLink >About Riverhacks</TypographyNavLink></Link>
+                                <Link href="#about" passHref><TypographyNavLink >About RiverHacks</TypographyNavLink></Link>
                                 <Link href="#schedule" passHref><TypographyNavLink >Schedule</TypographyNavLink></Link>
                                 <Link href="#faq" passHref><TypographyNavLink >FAQ</TypographyNavLink></Link>
                                 <Link href="#sponsors" passHref><TypographyNavLink >Sponsors</TypographyNavLink></Link>
