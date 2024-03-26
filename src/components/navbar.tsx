@@ -8,12 +8,9 @@ import Image from 'next/image';
 import {
     Sheet,
     SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet"
-import { TypographyH4, TypographyLead, TypographyNavLink, TypographyMuted } from '@/components/typography/typography';
+import { TypographyH4, TypographyLead, TypographyNavLink, TypographyMuted, TypographyH3 } from '@/components/typography/typography';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -92,7 +89,7 @@ export default function Navbar() {
         <header className={`sticky top-0 z-50 w-full border-b border-border/50 backdrop-blur-2xl supports-[backdrop-filter]:bg-inherit dark:backdrop-blur-2xl dark:border-border/50 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'
             }`}>
             <div className='container flex xs:flex-row sm:flex-row md:flex-row h-20px items-center justify-between'>
-                <div className='flex items-center min-w-fit'>
+                <div className='flex items-center'>
                     {isMediumScreen && (
                         <Image src={`/logo${resolvedTheme === 'dark' ? 'Dark' : 'Light'}.svg`} alt='ACC ACM Logo' height={64} width={64} className='ml-5 my-3' />
                     )}
@@ -100,11 +97,13 @@ export default function Navbar() {
                         <Image src={`/logo${resolvedTheme === 'dark' ? 'Dark' : 'Light'}.svg`} alt='ACC ACM Logo' height={48} width={48} className='ml-5 my-3' />
                     )}
                     <Link href='/' passHref>
-                        <div className='m-5 min-w-fit'>
-                            <TypographyH4 className=' sm:inline sm:line-clamp-1'>Austin Community College</TypographyH4>
-                            <TypographyLead className='hidden md:line-clamp-1 md:inline'>Association for Computing Machinery</TypographyLead>
-                            <TypographyMuted className='md:hidden'>Association for Computing Machinery</TypographyMuted>
-                            <TypographyMuted className='line-clamp-1'>Student Chapter</TypographyMuted>
+                        <div className='p-5 min-w-fit'>
+                            <TypographyH3 className='xs:hidden'>ACC</TypographyH3>
+                            <TypographyH4 className='hidden xs:block sm:line-clamp-1'>Austin Community College</TypographyH4>
+                            <TypographyMuted className='text-xs xs:hidden'>ACM</TypographyMuted>
+                            <TypographyMuted className='hidden xs:block'>Association for Computing Machinery</TypographyMuted>
+                            <TypographyLead className='hidden md:hidden'>Association for Computing Machinery</TypographyLead>
+                            <TypographyMuted className=''>Student Chapter</TypographyMuted>
                         </div></Link>
                 </div>
                 <div className='flex flex-1 items-center justify-end space-x-2 pr-6'>
@@ -223,11 +222,13 @@ export function NavbarHackathon() {
                     {isSmallScreen && (
                         <Image src={`/logo${resolvedTheme === 'dark' ? 'Dark' : 'Light'}.svg`} alt='ACC ACM Logo' height={48} width={48} className='ml-5 my-3' />
                     )}
-                    <Link href='/' passHref><div className='m-5 min-w-fit'>
-                        <TypographyH4 className='sm:inline sm:line-clamp-1'>Austin Community College</TypographyH4>
-                        <TypographyLead className='hidden md:line-clamp-1 md:inline'>Association for Computing Machinery</TypographyLead>
-                        <TypographyMuted className='md:hidden'>Association for Computing Machinery</TypographyMuted>
-                        <TypographyMuted className='line-clamp-1'>Student Chapter</TypographyMuted>
+                    <Link href='/' passHref><div className='p-5 min-w-fit'>
+                        <TypographyH3 className='xs:hidden'>ACC</TypographyH3>
+                        <TypographyH4 className='hidden xs:block sm:line-clamp-1'>Austin Community College</TypographyH4>
+                        <TypographyMuted className='text-xs xs:hidden'>ACM</TypographyMuted>
+                        <TypographyMuted className='hidden xs:block'>Association for Computing Machinery</TypographyMuted>
+                        <TypographyLead className='hidden md:hidden'>Association for Computing Machinery</TypographyLead>
+                        <TypographyMuted className=''>Student Chapter</TypographyMuted>
                     </div></Link>
                 </div>
                 <div className='flex flex-1 items-center justify-end space-x-2 pr-6'>
