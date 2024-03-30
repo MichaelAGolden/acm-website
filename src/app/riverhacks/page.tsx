@@ -77,50 +77,6 @@ export default function RiverhacksLanding() {
 								</div>
 							</div>
 						</section>
-
-						<Separator className="my-8" />
-
-						<section
-							id="about"
-							className="min-h-screen container px-5">
-							<TypographyH2>About Riverhacks</TypographyH2>
-							<TypographyP>
-								Riverhacks is an annual hackathon event hosted by ACM at ACC. It
-								brings together students, developers, and innovators for a
-								weekend of coding, collaboration, and creativity.
-							</TypographyP>
-						</section>
-
-						<Separator className="my-8" />
-
-						<section
-							id="schedule"
-							className="min-h-screen px-5">
-							<TypographyH3>Schedule</TypographyH3>
-							<div className="columns-2">
-								<TypographyH2 className='break-after-column'>Day 1</TypographyH2>
-								<TypographyP></TypographyP>
-								<TypographyH2>Day 2</TypographyH2>
-							</div>
-						</section>
-
-						<Separator className="my-8" />
-
-						<section
-							id="faq"
-							className="min-h-screen px-5">
-							<TypographyH2>FAQ</TypographyH2>
-							{/* Add frequently asked questions */}
-						</section>
-
-						<Separator className="my-8" />
-
-						<section
-							id="sponsors"
-							className="min-h-screen px-5">
-							<TypographyH2>Sponsors</TypographyH2>
-							{/* Add sponsor logos or details */}
-						</section>
 					</div>
 				</div>
 			</main>
